@@ -1,0 +1,59 @@
+module boss_drawHP(clk, start, HP, done, drawEn)
+	input [7:0] boss_x;
+	input [6:0] boss_y;
+	input clk, start;
+	input [4:0]HP;
+
+	output reg done;
+	output reg drawEn; //drawEnable of vga
+	output reg [7:0] x;
+	output reg [6:0] y;
+	
+	parameter A = 3'b000, B = 3'b001, C = 3'b010, D = 3'b011,
+				 E = 3'b100, F = 3'b101, G = 3'b110;
+				 
+	reg [2:0]state, n_state;
+	
+		//state table	
+	always @(*)
+	begin
+		case(state)
+		A://initializing
+				if(start)
+				n_state = C;
+				else
+				n_state = A;
+				
+		C://write only: increase address by 1
+				n_state = D;
+		D:	//write only: reading colour
+				n_state = E; 
+		E:	//x increment
+			if(x < (x_in + 4'd7))
+				n_state = C;
+			else
+				n_state = F;
+		F: //y increment
+			if(y < (y_in + 4'd7)) 
+				n_state = C;
+			else 
+				n_state = G;
+
+		G:
+			if (!begin_draw)
+				n_state = A;
+			else
+				n_state = G;
+				
+		default: n_state = A;
+		endcase
+	end	
+
+	
+	//datapath
+	always@(posedge clk) begin
+	state <= n_state;
+	
+	if(state == A) begin //initializing write
+		if(start) begin
+			drawEn <= 1'b1;

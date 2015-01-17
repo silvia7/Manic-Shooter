@@ -1,0 +1,82 @@
+module PS2_Keyboard(CLOCK_50,PS2_CLK,PS2_DAT,KEY,movement);
+
+PS2_Controller PS2 (
+	// Inputs
+	.CLOCK_50				(CLOCK_50),
+	.reset				(~KEY[0]),
+
+	// Bidirectionals
+	.PS2_CLK			(PS2_CLK),
+ 	.PS2_DAT			(PS2_DAT),
+
+	// Outputs
+	.received_data		(ps2_key_data),
+	.received_data_en	(ps2_key_pressed)
+);
+	// Inputs
+	inout	PS2_CLK;
+	inout	PS2_DAT;
+	input	CLOCK_50;
+	input [1:0]KEY;
+	output reg [3:0]movement;
+
+	wire [7:0]ps2_key_data;
+	wire ps2_key_pressed;
+	wire [15:0]datain;
+	
+	assign datain = ps2_key_data + ps2_key_data;
+	
+	parameter A = 3'b000, B = 3'b001;
+			 
+	reg [2:0]state, n_state;
+	
+	always @(*)begin
+		case(state)
+		A:if(!ps2_key_pressed)
+				n_state = B;
+		B:if(datain == (8'hF0 + 8'h1D))
+			n_state = A;
+			else if(datain == (8'hF0 + 8'h1C))
+			n_state = A;
+			else if(datain == (8'hF0 + 8'h1B))
+			n_state = A;
+			else if(datain == (8'hF0 + 8'h23))
+			n_state = A;
+			else
+		
+		default: n_state = A;
+		endcase
+	end	
+
+	always@(posedge CLOCK_50)
+	state <= n_state;
+
+	if(state == A) begin 
+			if(datain == 8'h1D)	//up
+				movement <= 4'b0001;
+			else if(datain == (8'h1D + 8'h23))	//up right
+				movement <= 4'b1001;
+			else if(datain == (8'h1B + 8'h1C))	//up left
+				movement <= 4'b0101;
+				
+			else if(datain == 8'h1B)	//down
+				movement <= 4'b0010;
+			else if(datain == (8'h1B + 8'h23))	//down right
+				movement <= 4'b1010;
+			else if(datain == (8'h1B + 8'h1C))	//down left
+				movement <= 4'b0110;
+			
+			else if(datain == 8'h1C)	//left
+				movement <= 4'b0100;
+			else if(datain == 8'h23)	//right
+				movement <= 4'b1000;
+			else
+				movement <= 4'b0000;
+	end
+	
+	if(state == B)begin
+		movement <= 4'b0000;
+	end
+	
+endmodule
+

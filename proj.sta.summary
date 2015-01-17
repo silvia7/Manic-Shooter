@@ -1,0 +1,141 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow Model Setup 'CLOCK_50'
+Slack : -3.753
+TNS   : -161.632
+
+Type  : Slow Model Setup 'check_collision:bcol|collision'
+Slack : -1.080
+TNS   : -3.712
+
+Type  : Slow Model Setup 'boss_bullets:bbl|check_collision:comb_901|collision'
+Slack : -0.681
+TNS   : -2.298
+
+Type  : Slow Model Setup 'rateDivider:comb_5|enable'
+Slack : -0.186
+TNS   : -0.367
+
+Type  : Slow Model Setup 'VGA|mypll|altpll_component|pll|clk[0]'
+Slack : 32.957
+TNS   : 0.000
+
+Type  : Slow Model Hold 'CLOCK_50'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'VGA|mypll|altpll_component|pll|clk[0]'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'boss_bullets:bbl|check_collision:comb_901|collision'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'check_collision:bcol|collision'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Hold 'rateDivider:comb_5|enable'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Slow Model Recovery 'boss_bullets:bbl|check_collision:comb_901|collision'
+Slack : -0.421
+TNS   : -2.105
+
+Type  : Slow Model Removal 'boss_bullets:bbl|check_collision:comb_901|collision'
+Slack : 1.191
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'boss_bullets:bbl|check_collision:comb_901|collision'
+Slack : -0.500
+TNS   : -5.000
+
+Type  : Slow Model Minimum Pulse Width 'check_collision:bcol|collision'
+Slack : -0.500
+TNS   : -5.000
+
+Type  : Slow Model Minimum Pulse Width 'rateDivider:comb_5|enable'
+Slack : -0.500
+TNS   : -4.000
+
+Type  : Slow Model Minimum Pulse Width 'CLOCK_50'
+Slack : 7.500
+TNS   : 0.000
+
+Type  : Slow Model Minimum Pulse Width 'VGA|mypll|altpll_component|pll|clk[0]'
+Slack : 17.873
+TNS   : 0.000
+
+Type  : Fast Model Setup 'CLOCK_50'
+Slack : -1.070
+TNS   : -31.466
+
+Type  : Fast Model Setup 'check_collision:bcol|collision'
+Slack : 0.069
+TNS   : 0.000
+
+Type  : Fast Model Setup 'boss_bullets:bbl|check_collision:comb_901|collision'
+Slack : 0.252
+TNS   : 0.000
+
+Type  : Fast Model Setup 'rateDivider:comb_5|enable'
+Slack : 0.444
+TNS   : 0.000
+
+Type  : Fast Model Setup 'VGA|mypll|altpll_component|pll|clk[0]'
+Slack : 36.853
+TNS   : 0.000
+
+Type  : Fast Model Hold 'CLOCK_50'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'VGA|mypll|altpll_component|pll|clk[0]'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'boss_bullets:bbl|check_collision:comb_901|collision'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'check_collision:bcol|collision'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Hold 'rateDivider:comb_5|enable'
+Slack : 0.215
+TNS   : 0.000
+
+Type  : Fast Model Recovery 'boss_bullets:bbl|check_collision:comb_901|collision'
+Slack : 0.133
+TNS   : 0.000
+
+Type  : Fast Model Removal 'boss_bullets:bbl|check_collision:comb_901|collision'
+Slack : 0.747
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'boss_bullets:bbl|check_collision:comb_901|collision'
+Slack : -0.500
+TNS   : -5.000
+
+Type  : Fast Model Minimum Pulse Width 'check_collision:bcol|collision'
+Slack : -0.500
+TNS   : -5.000
+
+Type  : Fast Model Minimum Pulse Width 'rateDivider:comb_5|enable'
+Slack : -0.500
+TNS   : -4.000
+
+Type  : Fast Model Minimum Pulse Width 'CLOCK_50'
+Slack : 7.500
+TNS   : 0.000
+
+Type  : Fast Model Minimum Pulse Width 'VGA|mypll|altpll_component|pll|clk[0]'
+Slack : 17.873
+TNS   : 0.000
+
+------------------------------------------------------------

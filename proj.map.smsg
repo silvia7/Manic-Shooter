@@ -1,0 +1,7 @@
+Info (10281): Verilog HDL Declaration information at boss_one_bullets.v(9): object "done" differs only in case from object "Done" in the same scope
+Info (10281): Verilog HDL Declaration information at collision.v(10): object "Coldtime" differs only in case from object "coldtime" in the same scope
+Warning (10268): Verilog HDL information at main.v(234): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at main.v(77): object "hold" differs only in case from object "Hold" in the same scope
+Info (10281): Verilog HDL Declaration information at bullet_control.v(11): object "done" differs only in case from object "Done" in the same scope
+Info (10281): Verilog HDL Declaration information at one_bullet.v(10): object "done" differs only in case from object "Done" in the same scope
+Info (10281): Verilog HDL Declaration information at keyboard_1.v(14): object "a" differs only in case from object "A" in the same scope

@@ -1,0 +1,79 @@
+module p_drawHP(clk, start, HP, done, drawEn, x, y);
+	input clk, start;
+	input [4:0]HP;
+
+	output reg done;
+	output reg drawEn; //drawEnable of vga
+	output reg [7:0] x;
+	output reg [6:0] y;
+	
+	parameter A = 3'b000, B = 3'b001, C = 3'b010, D = 3'b011,
+				 E = 3'b100, F = 3'b101, G = 3'b110;
+				 
+	reg [2:0]state, n_state;
+	
+		//state table	
+	always @(*)
+	begin
+		case(state)
+		A://initializing
+				if(start)
+				n_state = C;
+				else
+				n_state = A;
+				
+		C: if(y < (7'd111 + 3'd3))
+				n_state = C;
+			else
+				n_state = D;
+		D:	if(x < (8'd131 + HP) || x < (8'd131 + 5'd18))
+				n_state = C;
+			else
+				n_state = E;
+		E: if(!start)
+				n_state = A;
+			else 
+				n_state = E;
+				
+		default: n_state = A;
+		endcase
+	end	
+
+	
+	//datapath
+	always@(posedge clk) begin
+	state <= n_state;
+	
+	if(state == A) begin //initializing write
+		if(start) begin
+			drawEn <= 1'b1;
+			x <= 8'd131;
+			y <= 7'd111;
+		end
+	end
+	else if(state == C) begin
+		y <= y + 1;
+		if(y == (7'd111 + 3'd3))
+			drawEn <= 1'b0;
+	end
+	
+	else if(state == D) begin
+		x <= x + 1;
+		y <= 7'd111;
+		if(x == (8'd131 + HP) || x == (8'd131 + 5'd18)) begin
+			done <= 1;
+			drawEn <= 1'b0;
+		end
+		else
+			drawEn <= 1'b1;
+	end
+	else begin
+		if(!start)
+			done <= 0;
+		else
+			done <= 1;
+	end
+	
+	end
+	endmodule
+	

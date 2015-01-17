@@ -1,0 +1,134 @@
+module boss_bullets(
+	start, 
+	clk,
+	x_bullet,
+	y_bullet,
+	x_player,
+	y_player,
+	writeEn,
+	collision,
+	done);
+	
+	input start, clk;
+	input [7:0]x_player;
+	input [6:0]y_player;
+	
+	output [7:0]x_bullet;
+	output [6:0]y_bullet;
+	output writenEn, collision, done;
+	
+	bullets_data (address,clk,dataIn,wren,dataOut);
+	
+	wire [19:0]dataOut;
+	reg [19:0]dataIn;
+	reg wren;
+	reg [6:0]address;
+	reg [6:0]print_add;
+	reg [6:0]write_add;
+	
+	initial begin
+		print_add = 0;
+		write_add = 0;
+	end
+	
+	parameter A = 3'b000, B = 3'b001, C = 3'b010, D = 3'b011,
+				 E = 3'b100, F = 3'b101, G = 3'b110;
+				 
+	reg [2:0]state, n_state;
+	
+	///////////////////////////////////////////
+	always @(*)
+	begin
+		case(state)
+		A: begin
+			if(start) begin
+				if(activation)
+					n_state = B;
+				else
+					n_state = D;
+				
+			end
+			else
+				n_state = A;
+		end
+		B:
+				n_state = C; 
+		C:	if(address < (write_add + 7))
+				n_state = C;
+			else
+				n_state = D;
+		D:	//read
+				n_state = E; 
+		E:	//check status
+			if(x < (x_in + 4'd7))
+				n_state = C;
+			else
+				n_state = F;
+		F: 
+			if(y < (y_in + 4'd7)) 
+				n_state = C;
+			else 
+				n_state = G;
+
+		G:
+			if (!begin_draw)
+				n_state = A;
+			else
+				n_state = G;
+				
+		default: n_state = A;
+		endcase
+	end	
+
+	
+	//datapath
+	always@(posedge clk) begin
+	state <= n_state;
+	
+	if(state == A) begin //initializing write
+		
+	end 
+
+	else if (state == B) begin
+	
+	end
+
+	else if (state == C) begin
+	
+	end
+	
+	else if (state == D) begin
+		color <= color_in;
+	end
+	
+	else if (state == E)begin
+
+	end
+		
+	else if (state == F) begin
+	
+	end
+
+	else begin
+	
+	end
+
+end
+////////////////////////////////////////////////////////
+	
+	
+	reg activation;
+	reg [31:0]clockTick;
+	initial clockTick = 32'd0;
+	
+//timer for bullets activation
+	always@(posedge clk)begin
+		if(clockTick == 32'd200000000)
+			begin
+				activation <= 1'b1;
+				clockTick <=28'd0;
+			end
+		else
+			clockTick <= clockTick + 1;
+		end	
+	endmodule 

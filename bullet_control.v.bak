@@ -1,0 +1,7 @@
+module bullet_control(start, clk, player_x, player_y, direction, boss_x, boss_y, done);
+
+
+
+
+
+endmodule

@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="proj">
+		<CBX_INST_ENTRY INSTANCE_NAME="|proj|draw_bg:dbg|bg:comb_3|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_41f1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|proj|draw_win:dw|win:comb_3|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_grf1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|proj|boss_bullets:bbl|bullets_data:comb_3|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_1ef1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|proj|draw_boss:db|boss:b1|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_3he1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|proj|draw_gameover:dgo|gameover:comb_3|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_qkf1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|proj|draw_player:dp|player:p1|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_3oe1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|proj|vga_adapter:VGA|altsyncram:VideoMemory" CBX_FILE_NAME="altsyncram_1dg1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

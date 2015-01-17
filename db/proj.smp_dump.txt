@@ -1,0 +1,148 @@
+
+State Machine - |proj|state
+Name state.Begin_Drawing state.Over state.Win state.Update_pHP state.Boss_bullets state.Update_HP state.Hold state.Draw_B_Bullet state.Draw_Bullets state.Draw_Boss state.Draw_Player state.BackGround state.Idel 
+state.Idel 0 0 0 0 0 0 0 0 0 0 0 0 0 
+state.BackGround 0 0 0 0 0 0 0 0 0 0 0 1 1 
+state.Draw_Player 0 0 0 0 0 0 0 0 0 0 1 0 1 
+state.Draw_Boss 0 0 0 0 0 0 0 0 0 1 0 0 1 
+state.Draw_Bullets 0 0 0 0 0 0 0 0 1 0 0 0 1 
+state.Draw_B_Bullet 0 0 0 0 0 0 0 1 0 0 0 0 1 
+state.Hold 0 0 0 0 0 0 1 0 0 0 0 0 1 
+state.Update_HP 0 0 0 0 0 1 0 0 0 0 0 0 1 
+state.Boss_bullets 0 0 0 0 1 0 0 0 0 0 0 0 1 
+state.Update_pHP 0 0 0 1 0 0 0 0 0 0 0 0 1 
+state.Win 0 0 1 0 0 0 0 0 0 0 0 0 1 
+state.Over 0 1 0 0 0 0 0 0 0 0 0 0 1 
+state.Begin_Drawing 1 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |proj|p_drawHP:comb_15|state
+Name state.C state.A state.E state.D 
+state.A 0 0 0 0 
+state.C 1 1 0 0 
+state.D 0 1 0 1 
+state.E 0 1 1 0 
+
+State Machine - |proj|drawHP:comb_14|state
+Name state.C state.A state.E state.D 
+state.A 0 0 0 0 
+state.C 1 1 0 0 
+state.D 0 1 0 1 
+state.E 0 1 1 0 
+
+State Machine - |proj|boss_bullets:bbl|state
+Name state.L state.K state.J state.I state.H state.G state.F state.E state.D state.C state.B state.A 
+state.A 0 0 0 0 0 0 0 0 0 0 0 0 
+state.B 0 0 0 0 0 0 0 0 0 0 1 1 
+state.C 0 0 0 0 0 0 0 0 0 1 0 1 
+state.D 0 0 0 0 0 0 0 0 1 0 0 1 
+state.E 0 0 0 0 0 0 0 1 0 0 0 1 
+state.F 0 0 0 0 0 0 1 0 0 0 0 1 
+state.G 0 0 0 0 0 1 0 0 0 0 0 1 
+state.H 0 0 0 0 1 0 0 0 0 0 0 1 
+state.I 0 0 0 1 0 0 0 0 0 0 0 1 
+state.J 0 0 1 0 0 0 0 0 0 0 0 1 
+state.K 0 1 0 0 0 0 0 0 0 0 0 1 
+state.L 1 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |proj|boss_bullets:bbl|check_collision:comb_901|state
+Name state.Coldtime 
+state.Check 0 
+state.Coldtime 1 
+
+State Machine - |proj|boss_one_bullets:bob|state
+Name state.update state.print state.set state.Idel state.Done 
+state.Idel 0 0 0 0 0 
+state.set 0 0 1 1 0 
+state.print 0 1 0 1 0 
+state.update 1 0 0 1 0 
+state.Done 0 0 0 1 1 
+
+State Machine - |proj|one_bullets:ob|state
+Name state.update state.print state.set state.Idel state.Done 
+state.Idel 0 0 0 0 0 
+state.set 0 0 1 1 0 
+state.print 0 1 0 1 0 
+state.update 1 0 0 1 0 
+state.Done 0 0 0 1 1 
+
+State Machine - |proj|draw_win:dw|state
+Name state.G state.F state.E state.D state.C state.A 
+state.A 0 0 0 0 0 0 
+state.C 0 0 0 0 1 1 
+state.D 0 0 0 1 0 1 
+state.E 0 0 1 0 0 1 
+state.F 0 1 0 0 0 1 
+state.G 1 0 0 0 0 1 
+
+State Machine - |proj|draw_gameover:dgo|state
+Name state.G state.F state.E state.D state.C state.A 
+state.A 0 0 0 0 0 0 
+state.C 0 0 0 0 1 1 
+state.D 0 0 0 1 0 1 
+state.E 0 0 1 0 0 1 
+state.F 0 1 0 0 0 1 
+state.G 1 0 0 0 0 1 
+
+State Machine - |proj|draw_bg:dbg|state
+Name state.G state.F state.E state.D state.C state.A 
+state.A 0 0 0 0 0 0 
+state.C 0 0 0 0 1 1 
+state.D 0 0 0 1 0 1 
+state.E 0 0 1 0 0 1 
+state.F 0 1 0 0 0 1 
+state.G 1 0 0 0 0 1 
+
+State Machine - |proj|draw_boss:db|state
+Name state.G state.F state.E state.D state.C state.A 
+state.A 0 0 0 0 0 0 
+state.C 0 0 0 0 1 1 
+state.D 0 0 0 1 0 1 
+state.E 0 0 1 0 0 1 
+state.F 0 1 0 0 0 1 
+state.G 1 0 0 0 0 1 
+
+State Machine - |proj|draw_player:dp|state
+Name state.G state.F state.E state.D state.C state.A 
+state.A 0 0 0 0 0 0 
+state.C 0 0 0 0 1 1 
+state.D 0 0 0 1 0 1 
+state.E 0 0 1 0 0 1 
+state.F 0 1 0 0 0 1 
+state.G 1 0 0 0 0 1 
+
+State Machine - |proj|check_collision:bcol|state
+Name state.Coldtime 
+state.Check 0 
+state.Coldtime 1 
+
+State Machine - |proj|PS2_Keyboard:comb_13|state
+Name state.B 
+state.A 0 
+state.B 1 
+
+State Machine - |proj|PS2_Controller:PS2|s_ps2_transceiver
+Name s_ps2_transceiver.PS2_STATE_3_END_TRANSFER s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT s_ps2_transceiver.PS2_STATE_1_DATA_IN s_ps2_transceiver.PS2_STATE_0_IDLE s_ps2_transceiver.PS2_STATE_4_END_DELAYED 
+s_ps2_transceiver.PS2_STATE_0_IDLE 0 0 0 0 0 
+s_ps2_transceiver.PS2_STATE_1_DATA_IN 0 0 1 1 0 
+s_ps2_transceiver.PS2_STATE_2_COMMAND_OUT 0 1 0 1 0 
+s_ps2_transceiver.PS2_STATE_3_END_TRANSFER 1 0 0 1 0 
+s_ps2_transceiver.PS2_STATE_4_END_DELAYED 0 0 0 1 1 
+
+State Machine - |proj|PS2_Controller:PS2|Altera_UP_PS2_Command_Out:PS2_Command_Out|s_ps2_transmitter
+Name s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION s_ps2_transmitter.PS2_STATE_0_IDLE 
+s_ps2_transmitter.PS2_STATE_0_IDLE 0 0 0 0 0 0 0 0 
+s_ps2_transmitter.PS2_STATE_1_INITIATE_COMMUNICATION 0 0 0 0 0 0 1 1 
+s_ps2_transmitter.PS2_STATE_2_WAIT_FOR_CLOCK 0 0 0 0 0 1 0 1 
+s_ps2_transmitter.PS2_STATE_3_TRANSMIT_DATA 0 0 0 0 1 0 0 1 
+s_ps2_transmitter.PS2_STATE_4_TRANSMIT_STOP_BIT 0 0 0 1 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_5_RECEIVE_ACK_BIT 0 0 1 0 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_6_COMMAND_WAS_SENT 0 1 0 0 0 0 0 1 
+s_ps2_transmitter.PS2_STATE_7_TRANSMISSION_ERROR 1 0 0 0 0 0 0 1 
+
+State Machine - |proj|PS2_Controller:PS2|Altera_UP_PS2_Data_In:PS2_Data_In|s_ps2_receiver
+Name s_ps2_receiver.PS2_STATE_3_PARITY_IN s_ps2_receiver.PS2_STATE_2_DATA_IN s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA s_ps2_receiver.PS2_STATE_0_IDLE s_ps2_receiver.PS2_STATE_4_STOP_IN 
+s_ps2_receiver.PS2_STATE_0_IDLE 0 0 0 0 0 
+s_ps2_receiver.PS2_STATE_1_WAIT_FOR_DATA 0 0 1 1 0 
+s_ps2_receiver.PS2_STATE_2_DATA_IN 0 1 0 1 0 
+s_ps2_receiver.PS2_STATE_3_PARITY_IN 1 0 0 1 0 
+s_ps2_receiver.PS2_STATE_4_STOP_IN 0 0 0 1 1 
